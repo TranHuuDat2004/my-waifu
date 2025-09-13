@@ -1,0 +1,711 @@
+/* --- CÀI ĐẶT CHUNG & BIẾN --- */
+:root {
+    --font-script: 'Caveat', cursive;
+    /* Font chữ viết tay của Mahiru */
+    --font-mono: 'JetBrains Mono', monospace;
+    /* Font terminal của Amane */
+
+    --color-bg: #FDF8F0;
+    /* Màu nền kem ấm áp */
+    --color-text: #5C5470;
+    /* Màu chữ nâu sẫm */
+    --color-accent: #B9A4A1;
+    /* Màu nhấn nâu nhạt */
+
+    --color-terminal-bg: #2a2734;
+    /* Nền terminal tối ấm */
+    --color-terminal-text: #E0D9F0;
+    /* Chữ terminal màu tím nhạt */
+    --color-terminal-prompt: #82A284;
+    /* Prompt màu xanh lá cây nhạt */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg);
+    font-family: var(--font-mono);
+    color: var(--color-text);
+    /* BỎ overflow: hidden ĐỂ CHO PHÉP CUỘN */
+}
+
+main {
+    padding-top: 2rem;
+    /* Thêm khoảng đệm ở trên cùng */
+}
+
+/* --- PHẦN 1: LANDING PAGE CỦA MAHIRU --- */
+#landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* BỎ min-height: 100vh */
+    padding: 2rem;
+    padding-top: 0;
+}
+
+.logo {
+    font-family: var(--font-script);
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+}
+
+.art-card {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.artwork-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 2s ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem 3rem;
+}
+
+.card-content {
+    color: white;
+}
+
+.card-content p {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.card-content h1 {
+    font-family: var(--font-script);
+    font-size: 4rem;
+    line-height: 1;
+    margin-top: 0.5rem;
+}
+
+.social-links {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 3rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- PHẦN 2: TERMINAL CỦA AMANE --- */
+#terminal-container {
+    /* ĐỔI từ display: none thành display: flex */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* BỎ min-height: 100vh */
+    padding: 4rem 2rem;
+    /* Thêm khoảng cách trên dưới */
+}
+
+.terminal-window {
+    width: 90vw;
+    max-width: 800px;
+    /* ĐỔI height thành một giá trị cố định hoặc max-height */
+    height: 500px;
+    background-color: var(--color-terminal-bg);
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    background-color: #3c384a;
+    padding: 0.7rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red {
+    background-color: #ff5f56;
+}
+
+.dot.yellow {
+    background-color: #ffbd2e;
+}
+
+.dot.green {
+    background-color: #27c93f;
+}
+
+.terminal-body {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    color: var(--color-terminal-text);
+    cursor: text;
+
+    /* --- THÊM 3 DÒNG SAU ĐỂ ẨN THANH CUỘN --- */
+    scrollbar-width: none;
+    /* Cho Firefox */
+    -ms-overflow-style: none;
+    /* Cho Internet Explorer và Edge */
+}
+
+/* Thêm đoạn này ngay bên dưới để ẩn thanh cuộn cho Chrome, Safari, Opera */
+.terminal-body::-webkit-scrollbar {
+    display: none;
+}
+
+#terminal-output p {
+    white-space: pre-wrap;
+    margin-bottom: 0.5em;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: var(--color-terminal-prompt);
+    margin-right: 0.5rem;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.2em;
+    background-color: var(--color-terminal-text);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: var(--color-terminal-text);
+    }
+}
+
+.info-output {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.info-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.info-text {
+    flex: 1;
+}
+
+/* --- CSS MỚI CHO GỢI Ý (AUTOCOMPLETE) --- */
+.autocomplete-suggestion {
+    color: rgba(224, 217, 240, 0.4);
+    /* Màu chữ terminal nhưng mờ đi 60% */
+    pointer-events: none;
+    /* Quan trọng: làm cho gợi ý không thể click được */
+}
+
+/* --- PHẦN MỚI: FOOTER --- */
+footer {
+    /* Tạo khoảng cách với terminal ở trên và đáy trang */
+    padding: 4rem 2rem 3rem 2rem;
+    text-align: center;
+}
+
+footer p {
+    font-family: var(--font-script);
+    /* Dùng font chữ của Mahiru */
+    font-size: 1.8rem;
+    /* Kích thước chữ vừa phải, thanh lịch */
+    color: var(--color-accent);
+    /* Dùng màu nhấn nâu nhạt cho đồng bộ */
+    line-height: 1.6;
+    /* Tăng khoảng cách dòng cho dễ đọc */
+    max-width: 700px;
+    /* Giới hạn chiều rộng để câu quote không quá dài */
+    margin: 0 auto;
+    /* Tự động căn giữa */
+}
+
+/* ====================================================== */
+/* PHẦN MỚI: STORY SECTION                                */
+/* ====================================================== */
+#story-section {
+    padding: 5rem 2rem;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dHTZ2dnu7u7MzMzPz8/Pz8/k5OTg4ODf39/X19fS0tLT09Pb29vR0dHq6urJycnY2Njh4eHf39/Z2dnb29vT09PGxsbp6enp6enY2NjBwcG/v78E8SswAAAAVklEQVR4nN3UyQ2AMBAA0WysBC8/OMv/bylJQDQkAQSf6sczR4c9K/q5iWwP9eNFlwX9aB1lAhv4A2wD/iAmU/iBE0sBAxQB8Xg38A18A/sB/ok8/gD/BDD/AAT/wB7A/wP8/z/D/38C/wD/H/4F/h/8/38G/x/9A/6B/0f/Qf+A/0f/wf+A/0f/g/8f/wf+P/6D/0P/B//H/wf/h/8f/wf+D/8f/i/+f/wP/B//H/4//AP8P/h/+P/4P/h/+f/wP/B/8H//P/h//H/4//B/8H//P/h/8H/4f/B//H/wv/AAT/wB/gD/wL/wP/AAT/wB7A/wP8/z/D/38C/wD/H/4F/h/8/38G/x/9A/6B/0f/Qf+A/0f/wf+A/0f/g/8f/wf+P/6D/0P/B//H/wf/h/8f/wf+D/8f/i/+f/wP/B//H/4//AP8P/h/+P/4P/h/+f/wP/B/8H//P/h//H/4//B/8H//P/h/8H/4f/B//H/wv/AAAA/8BANtL1Y2z5A7AAAAAElFTkSuQmCC');
+    /* Texture giấy nhám nhẹ */
+}
+
+.story-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.story-image img {
+    width: auto;
+    height: 400px;
+}
+
+.story-content {
+    flex-basis: 60%;
+    color: #706866;
+    /* Màu chữ nâu đậm hơn một chút */
+}
+
+.story-title-frame {
+    border: 2px solid #D1C0A8;
+    /* Viền màu vàng gold nhạt */
+    border-radius: 5px;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, rgba(253, 248, 240, 0.1), rgba(253, 248, 240, 0.5), rgba(253, 248, 240, 0.1));
+
+    /* Họa tiết trang trí */
+    background-image:
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="%23D1C0A8" opacity="0.3"/></svg>'),
+        linear-gradient(to right, rgba(253, 248, 240, 0.1), rgba(253, 248, 240, 0.5), rgba(253, 248, 240, 0.1));
+    background-repeat: no-repeat;
+    background-position: 5% 50%, 0 0;
+}
+
+.story-title-frame h1 {
+    font-family: 'Times New Roman', Times, serif;
+    /* Font chữ cổ điển */
+    font-size: 2.5rem;
+    color: #5C5470;
+}
+
+.story-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.story-links {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.story-links a {
+    color: var(--color-accent);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.story-links a:hover {
+    color: var(--color-text);
+}
+
+
+/* ====================================================== */
+/* PHẦN MỚI: VERSION SECTION                              */
+/* ====================================================== */
+#version-section {
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.version-header {
+    margin-bottom: 3rem;
+}
+
+.version-header h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    color: var(--color-text);
+}
+
+.version-header p {
+    font-size: 1rem;
+    color: var(--color-accent);
+    margin-top: 0.5rem;
+}
+
+.version-choices {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* Căn các ảnh theo đáy */
+    gap: 5rem;
+}
+
+.version-card {
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.version-card:hover {
+    transform: translateY(-15px);
+}
+
+.version-card img {
+    max-height: 400px;
+    width: auto;
+}
+
+/* Responsive cho 2 section mới */
+@media (max-width: 768px) {
+
+    /* Story Section */
+    .story-container {
+        flex-direction: column;
+        /* Chuyển thành layout cột */
+        gap: 2rem;
+    }
+
+    .story-content {
+        text-align: center;
+    }
+
+    /* Version Section */
+    .version-choices {
+        flex-direction: column;
+        gap: 3rem;
+        align-items: center;
+        /* Căn các ảnh theo giữa */
+    }
+
+    .version-card img {
+        max-height: 300px;
+    }
+
+    /* --- CHỈNH SỬA CHUNG --- */
+    main {
+        padding-top: 1rem;
+        /* Giảm khoảng đệm ở trên cùng */
+    }
+
+    .logo {
+        font-size: 2rem;
+        /* Thu nhỏ logo */
+        margin-bottom: 1.5rem;
+    }
+
+    /* --- 1. CHỈNH SỬA CARD ẢNH CỦA MAHIRU --- */
+    #landing-page {
+        padding: 1rem;
+        /* Giảm padding của cả section */
+    }
+
+    .art-card {
+        /* Thay đổi tỉ lệ khung hình để phù hợp với màn hình dọc */
+        /* Tỉ lệ 4:3 hoặc 1:1 sẽ đẹp hơn là 16:8 */
+        aspect-ratio: 4 / 3;
+    }
+
+    .overlay {
+        /* Giảm padding bên trong card */
+        padding: 1.5rem;
+    }
+
+    .card-content h1 {
+        /* Thu nhỏ tên "Mahiru Shiina" */
+        font-size: 2rem;
+    }
+
+    .card-content p {
+        font-size: 0.85rem;
+    }
+
+    .social-links {
+        /* Di chuyển các icon vào trong hơn */
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .social-links a {
+        /* Thu nhỏ các icon mạng xã hội */
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+
+    /* --- 2. CHỈNH SỬA TERMINAL CỦA AMANE --- */
+    #terminal-container {
+        /* Giảm padding trên dưới của section terminal */
+        padding: 2.5rem 1rem;
+    }
+
+    .terminal-window {
+        /* 
+        **QUAN TRỌNG NHẤT:**
+        Thay chiều cao CỐ ĐỊNH (500px) bằng chiều cao TƯƠNG ĐỐI (vh).
+        65vh nghĩa là chiều cao tối đa bằng 65% chiều cao của màn hình.
+        Điều này đảm bảo terminal không bao giờ quá dài trên điện thoại.
+        */
+        height: 65vh;
+    }
+
+    .terminal-body {
+        /* Thu nhỏ font chữ trong terminal một chút */
+        font-size: 0.85rem;
+    }
+
+    /* --- 3. CHỈNH SỬA FOOTER --- */
+    footer {
+        padding: 2.5rem 1rem 2rem 1rem;
+        /* Giảm padding footer */
+    }
+
+    footer p {
+        font-size: 1.4rem;
+        /* Thu nhỏ font chữ quote */
+    }
+}
+
+/* Responsive cho màn hình điện thoại */
+@media (max-width: 576px) {
+    footer p {
+        font-size: 1.4rem;
+    }
+}
+
+
+/* ====================================================== */
+/* PHẦN MỚI: GALLERY SECTION                              */
+/* ====================================================== */
+#gallery-section {
+    padding: 5rem 2rem;
+    background-color: #fdfdfd; /* Màu nền hơi khác một chút để tách biệt */
+    text-align: center;
+}
+
+.gallery-header {
+    margin-bottom: 3rem;
+}
+
+.gallery-header h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    color: var(--color-text);
+}
+
+.gallery-header p {
+    font-size: 1rem;
+    color: var(--color-accent);
+    margin-top: 0.5rem;
+}
+
+/* --- 1. Lưới ảnh kiểu Pinterest (Masonry Layout) --- */
+.gallery-grid {
+    /* Sử dụng CSS Columns để tạo hiệu ứng Masonry */
+    column-count: 5; /* Mặc định 4 cột trên màn hình lớn */
+    column-gap: 1rem; /* Khoảng cách giữa các cột */
+}
+
+.gallery-item {
+    margin-bottom: 1rem; /* Khoảng cách giữa các ảnh theo chiều dọc */
+    /* QUAN TRỌNG: Ngăn một ảnh bị cắt làm đôi qua 2 cột */
+    break-inside: avoid;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block; /* Loại bỏ khoảng trắng thừa dưới ảnh */
+    border-radius: 10px; /* Bo góc ảnh cho mềm mại */
+}
+
+/* --- 2. Hiệu ứng Fade In / Fade Out --- */
+.gallery-item {
+    /* Trạng thái mặc định: Ẩn và hơi dịch chuyển xuống dưới */
+    opacity: 0;
+    transform: translateY(20px);
+    /* Hiệu ứng chuyển động mượt mà trong 0.6 giây */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Lớp này sẽ được JavaScript thêm vào khi ảnh lọt vào màn hình */
+.gallery-item.is-visible {
+    /* Trạng thái khi nhìn thấy: Rõ nét và trở về vị trí cũ */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 3. Responsive cho Lưới ảnh --- */
+@media (max-width: 1200px) {
+    .gallery-grid {
+        column-count: 4; /* 3 cột cho tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        column-count: 3; /* 2 cột cho điện thoại */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        column-count: 2; /* 1 cột trên màn hình rất nhỏ */
+    }
+}
+
+/* ====================================================== */
+/* PHẦN MỚI: CHARACTER SHEET SECTION                      */
+/* ====================================================== */
+
+#character-sheet-section {
+    padding: 5rem 0; /* Padding trên dưới */
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dHTZ2dnu7u7MzMzPz8/Pz8/k5OTg4ODf39/X19fS0tLT09Pb29vR0dHq6urJycnY2Njh4eHf39/Z2dnb29vT09PGxsbp6enp6enY2NjBwcG/v78E8SswAAAAVklEQVR4nN3UyQ2AMBAA0WysBC8/OMv/bylJQDQkAQSf6sczR4c9K/q5iWwP9eNFlwX9aB1lAhv4A2wD/iAmU/iBE0sBAxQB8Xg38A18A/sB/ok8/gD/BDD/AAT/wB7A/wP8/z/D/38C/wD/H/4F/h/8/38G/x/9A/6B/0f/Qf+A/0f/wf+A/0f/g/8f/wf+P/6D/0P/B//H/wf/h/8f/wf+D/8f/i/+f/wP/B//H/4//AP8P/h/+P/4P/h/+f/wP/B/8H//P/h//H/4//B/8H//P/h/8H/4f/B//H/wv/AAAA/8BANtL1Y2z5A7AAAAAElFTSuQmCC'); /* Texture giấy */
+}
+
+/* --- QUAN TRỌNG: Tạo bố cục 20-60-20 --- */
+.main-content-area {
+    width: 60%; /* Nội dung chính chiếm 60% */
+    margin: 0 auto; /* Tự động căn giữa, tạo ra 20% lề mỗi bên */
+    max-width: 1600px; /* Giới hạn chiều rộng tối đa trên màn hình siêu lớn */
+}
+
+/* --- Phần giới thiệu Scrapbook --- */
+.scrapbook-container {
+    position: relative; /* Key để định vị các yếu tố trang trí */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.scrapbook-card {
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.scrapbook-card:hover {
+    transform: scale(1.02); /* Hiệu ứng phóng to nhẹ khi hover */
+}
+
+.scrapbook-card img {
+    width: 100%;
+    display: block;
+}
+
+.profile-card {
+    flex-basis: 55%;
+    transform: rotate(-2deg); /* Tạo hiệu ứng nghiêng */
+}
+
+.reference-card {
+    flex-basis: 45%;
+    transform: rotate(1.5deg); /* Tạo hiệu ứng nghiêng */
+}
+
+/* --- Các yếu tố trang trí --- */
+.deco-swirl {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,0 C80,10 90,40 100,50 C90,60 80,90 50,100 C20,90 10,60 0,50 C10,40 20,10 50,0 Z" fill="none" stroke="%23333" stroke-width="1" stroke-dasharray="2,2"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+}
+.deco-swirl-top {
+    top: -50px;
+    left: 20px;
+}
+.deco-swirl-bottom {
+    bottom: -60px;
+    right: 30px;
+    transform: rotate(90deg);
+}
+.deco-label {
+    position: absolute;
+    font-family: var(--font-script);
+    font-size: 1.5rem;
+    color: var(--color-accent);
+}
+.deco-label-visual {
+    bottom: 20px;
+    left: 40px;
+    transform: rotate(-15deg);
+}
+
+/* --- Responsive cho toàn bộ section --- */
+@media (max-width: 1200px) {
+    .main-content-area {
+        width: 80%; /* Tăng chiều rộng nội dung trên tablet */
+    }
+}
+
+@media (max-width: 992px) {
+    .main-content-area {
+        width: 90%; /* Tăng chiều rộng hơn nữa */
+    }
+    .scrapbook-container {
+        flex-direction: column; /* Chuyển thành layout cột */
+        gap: 3rem;
+    }
+    .profile-card, .reference-card {
+        transform: rotate(0); /* Bỏ hiệu ứng nghiêng trên mobile */
+        width: 100%;
+    }
+}

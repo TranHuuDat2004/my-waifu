@@ -1,0 +1,138 @@
+<!-- mahiru.html -->
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Little Place</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Your Stylesheet -->
+    <link rel="stylesheet" href="css/mahiru.css">
+</head>
+
+<body>
+    <!-- PHẦN 1: LANDING PAGE CỦA MAHIRU -->
+    <div id="landing-page">
+        <div class="logo">Mahiru Shiina</div>
+        <div class="art-card">
+            <!-- HÌNH ẢNH CỦA MAHIRU -->
+            <img src="assets/banner.png" alt="Mahiru Shiina" class="artwork-img" id="artwork-slideshow">
+            <div class="overlay">
+                <div class="card-content">
+                    <p>Chào mừng đến căn nhà nhỏ của chúng tôi</p>
+                    <h1>Mahiru Shiina</h1>
+                    <div class="social-links">
+                        <a href="https://github.com/TranHuuDat2004" target="_blank" aria-label="GitHub"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/tranhuudat2004" target="_blank" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="mailto:tranhuudat.cv@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHẦN 2: TERMINAL CỦA AMANE -->
+    <!-- <div id="terminal-container">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+                <div id="terminal-output">
+                    <p>Welcome to Amane's terminal.</p>
+                    <p>Confused? Type 'help' and press Enter to get started!</p>
+                </div>
+                <div class="input-line">
+                    <span class="prompt">amane@shiina:~$</span>
+                   
+                    <span id="text-input" class="text-input"></span><span id="autocomplete-suggestion"
+                        class="autocomplete-suggestion"></span><span class="cursor"></span>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- ====================================================== -->
+    <!-- PHẦN MỚI: GIỚI THIỆU NHÂN VẬT (STORY SECTION) -->
+    <!-- ====================================================== -->
+    <section id="story-section">
+        <div class="story-container">
+            <!-- Cột ảnh bên trái -->
+            <div class="story-image">
+                <img src="assets/mahiru_full_body.png" alt="Mahiru Shiina full body artwork">
+            </div>
+
+            <!-- Cột nội dung bên phải -->
+            <div class="story-content">
+                <div class="story-title-frame">
+                    <h1>Mahiru Shiina</h1>
+                </div>
+                <p>
+                    Living next door is a girl they call an angel.
+                    She is beautiful and kind, always perfect in everything she does.
+                </p>
+                <p>
+                    She keeps the warmth of a happy home,
+                    tucked safely in the meals she cooks and the care she gives.
+                </p>
+                <p>
+                    She loves Amane, and dreams of one day
+                    having him by her side, sharing simple, happy days together.
+                </p>
+                <p>
+                    She wants to bring happiness to the one she loves through her gentle care.
+                </p>
+                <!-- <div class="story-links">
+                    <a href="LINK_TO_YOUR_YOUTUBE" target="_blank">YouTube</a>
+                    <a href="LINK_TO_YOUR_TWITTER" target="_blank">X</a>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!-- PHẦN MỚI: CHỌN PHIÊN BẢN (VERSION SECTION) -->
+    <!-- ====================================================== -->
+    <section id="version-section">
+        <div class="version-header">
+            <h2>Gallery</h2>
+            <p>Xem toàn bộ ảnh Mahiru </p>
+        </div>
+        <div class="version-choices">
+            <a href="mahiru-gallery.html">
+                <div class="version-card scrapbook-card profile-card">
+                    <img src="assets/mahiru/banner.jpg" alt="Mahiru in school uniform">
+                    <!-- <h3>School Days</h3> -->
+                </div>
+
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>“Just like cooking, every line of code needs a little love to be perfect.”</p>
+    </footer>
+
+    <!-- Input ẩn để nhận phím gõ -->
+    <input type="text" id="hidden-input" style="position: absolute; left: -9999px;">
+
+    <!-- Your JavaScript -->
+    <script src="js/mahiru.js"></script>
+</body>
+
+</html>
