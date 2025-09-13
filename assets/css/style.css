@@ -709,3 +709,12 @@ footer p {
         width: 100%;
     }
 }
+
+.fullscreen-terminal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #1a1b26; /* Một màu nền tối khác */
+}
