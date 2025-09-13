@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- TÙY CHỈNH: Đặt tên các file ảnh của bạn vào đây ---
     const slideshowImages = [
-        'assets/banner.png',
-        'assets/tap7.png',
-        'assets/tap12.png'
+        'assets/images/mahiru/slide1.png',
+        'assets/images/mahiru/slide2.png',
+        'assets/images/mahiru/slide3.png'
         // Thêm bao nhiêu ảnh tùy thích
     ];
 

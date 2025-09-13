@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const TOTAL_TAP_IMAGES = 12; // Tổng số ảnh "tap"
         const TOTAL_MAHIRU_GIFS = 47; // Tổng số ảnh "Mahiru"
         
-        const TAP_IMAGE_PATH = 'assets/mahiru/'; // Đường dẫn đến thư mục chứa ảnh "tap"
-        const MAHIRU_GIF_PATH = 'assets/gifs/'; // Đường dẫn đến thư mục chứa ảnh "Mahiru"
+        const TAP_IMAGE_PATH = 'assets/images/mahiru/tap/'; // Đường dẫn đến thư mục chứa ảnh "tap"
+        const MAHIRU_GIF_PATH = 'assets/images/mahiru/gifs/'; // Đường dẫn đến thư mục chứa ảnh "Mahiru"
 
         // --- PHẦN MỚI: TỰ ĐỘNG TẠO CÁC MỤC GALLERY ---
         
