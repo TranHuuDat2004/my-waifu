@@ -1,59 +1,63 @@
-// ======================================================
-// PHẦN TỰ ĐỘNG TẠO GALLERY VÀ LOGIC HIỆU ỨNG
-// ======================================================
 document.addEventListener('DOMContentLoaded', () => {
+    // ======================================================
+    // LOGIC CHUNG CHO TẤT CẢ CÁC TRANG
+    // ======================================================
+
+    const slideshowElement = document.getElementById('artwork-slideshow');
+    const terminalContainer = document.getElementById('terminal-container');
     const galleryGrid = document.querySelector('.gallery-grid');
 
-    // Chỉ chạy code nếu có gallery trên trang
+
+
+    // --- 3. KHỞI TẠO GALLERY (Nếu có trên trang) - PHIÊN BẢN TỐI ƯU ---
     if (galleryGrid) {
         
-        // --- TÙY CHỈNH: ĐIỀN THÔNG SỐ ẢNH CỦA BẠN VÀO ĐÂY ---
-        const TOTAL_TAP_IMAGES = 12; // Tổng số ảnh "tap"
-        const TOTAL_MAHIRU_GIFS = 47; // Tổng số ảnh "Mahiru"
-        
-        const TAP_IMAGE_PATH = 'assets/images/mahiru/tap/'; // Đường dẫn đến thư mục chứa ảnh "tap"
-        const MAHIRU_GIF_PATH = 'assets/images/mahiru/gifs/'; // Đường dẫn đến thư mục chứa ảnh "Mahiru"
+        const imageSources = [
+            // ... (Giữ nguyên cấu hình imageSources của bạn)
+            { path: 'assets/images/mahiru/tap/', prefix: 'tap', suffix: '', ext: 'png', count: 12 },
+            { path: 'assets/images/mahiru/gifs/', prefix: 'Mahiru (', suffix: ')', ext: 'gif', count: 47 },
+            { path: 'assets/images/mahiru/Gallery/', prefix: 'Mahiru (', suffix: ')', ext: 'jpg', count: 100 }
+        ];
 
-        // --- PHẦN MỚI: TỰ ĐỘNG TẠO CÁC MỤC GALLERY ---
-        
-        // Vòng lặp 1: Tạo các ảnh "tap"
-        for (let i = 1; i <= TOTAL_TAP_IMAGES; i++) {
-            // Tạo một thẻ div cho mỗi item
+        // --- HÀM TỐI ƯU: Tải ảnh trong nền trước khi hiển thị ---
+        function createImageItem(src, alt) {
+            // 1. Tạo container rỗng trước
             const item = document.createElement('div');
             item.className = 'gallery-item';
             
-            // Tạo thẻ img bên trong
-            const img = document.createElement('img');
-            // QUAN TRỌNG: Đảm bảo tên file và đuôi file chính xác
-            img.src = `${TAP_IMAGE_PATH}tap${i}.png`; 
-            img.alt = `Gallery image tap ${i}`;
+            // 2. Tạo một ảnh "vô hình" trong bộ nhớ để tải
+            const preloader = new Image();
             
-            // Gắn ảnh vào item, rồi gắn item vào lưới
-            item.appendChild(img);
-            galleryGrid.appendChild(item);
+            // 3. Lắng nghe sự kiện 'load' - chỉ kích hoạt khi ảnh tải xong
+            preloader.onload = () => {
+                // 4. Khi đã tải xong, mới tạo thẻ <img> thật và chèn vào DOM
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = alt;
+                item.appendChild(img);
+                
+                // 5. Bắt đầu "quan sát" item này ĐỂ KÍCH HOẠT HIỆU ỨNG
+                observer.observe(item);
+            };
+            
+            // 6. Ra lệnh cho ảnh "vô hình" bắt đầu tải
+            preloader.src = src;
+            
+            return item; // Trả về container rỗng ngay lập tức
         }
 
-        // Vòng lặp 2: Tạo các ảnh "Mahiru"
-        for (let i = 1; i <= TOTAL_MAHIRU_GIFS; i++) {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            
-            const img = document.createElement('img');
-            // QUAN TRỌNG: Tên file có dấu cách và ngoặc đơn
-            img.src = `${MAHIRU_GIF_PATH}Mahiru (${i}).gif`; 
-            img.alt = `Gallery gif Mahiru ${i}`;
-
-            item.appendChild(img);
-            galleryGrid.appendChild(item);
-        }
-
-
-        // --- LOGIC HIỆU ỨNG CUỘN (CHẠY SAU KHI ĐÃ TẠO XONG GALLERY) ---
+        // --- LOGIC TẠO GALLERY (Sử dụng hàm tối ưu) ---
+        imageSources.forEach(source => {
+            for (let i = 1; i <= source.count; i++) {
+                const imageUrl = `${source.path}${source.prefix}${i}${source.suffix}.${source.ext}`;
+                const imageAlt = `Gallery image ${i}`;
+                
+                const galleryItemElement = createImageItem(imageUrl, imageAlt);
+                galleryGrid.appendChild(galleryItemElement);
+            }
+        });
         
-        // 1. Chọn tất cả các ảnh VỪA ĐƯỢC TẠO RA
-        const galleryItems = document.querySelectorAll('.gallery-item');
-
-        // 2. Tạo một "người quan sát"
+        // --- LOGIC HIỆU ỨNG CUỘN (Chỉ khởi tạo, không cần chạy observe ở đây nữa) ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -65,15 +69,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }, {
             threshold: 0.1 
         });
-
-        // 3. Bắt đầu theo dõi tất cả các ảnh
-        galleryItems.forEach(item => {
-            observer.observe(item);
-        });
     }
-
-    // --- CÁC PHẦN CODE KHÁC CỦA BẠN (TERMINAL, SLIDESHOW...) GIỮ NGUYÊN BÊN DƯỚI ---
-    // ... (dán code cũ của terminal, slideshow... vào đây nếu chúng ở cùng file)
 });
-
-// Nếu code terminal và slideshow của bạn ở file khác thì không cần lo lắng
