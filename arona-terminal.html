@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arona's Terminal</title>
+    <!-- ... (Link đến Google Fonts và Font Awesome) ... -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Dùng chung file CSS với trang Story -->
+    <link rel="stylesheet" href="assets/css/arona-subpage.css">
+</head>
+<body class="terminal-body-bg"> <!-- Thêm class để đổi màu nền -->
+
+    <div id="terminal-container" class="fullscreen-terminal">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <a href="arona.html" class="back-link-terminal">Exit Terminal</a>
+                <div class="dots-group">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+                <div id="terminal-output">
+                    <p>S.C.H.A.L.E. System Shell [Version 2.0]</p>
+                    <p>(c) Arona AI. All rights reserved.</p>
+                    <p>Type 'help' for a list of available commands.</p>
+                </div>
+                <div class="input-line">
+                    <span class="prompt">sensei@schale:~$</span>
+                    <span id="text-input" class="text-input"></span><span id="autocomplete-suggestion" class="autocomplete-suggestion"></span><span class="cursor"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <input type="text" id="hidden-input" style="position: absolute; left: -9999px;">
+    <!-- Script riêng cho terminal -->
+    <script src="assets/js/arona-terminal.js"></script>
+</body>
+</html>

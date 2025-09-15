@@ -1,0 +1,170 @@
+/* ====================================================== */
+/*          ARONA'S SUBPAGES STYLESHEET                   */
+/* ====================================================== */
+
+/* --- BIẾN MÀU SẮC VÀ FONT --- */
+:root {
+    --font-main: 'Poppins', sans-serif;
+    --arona-blue: #A9D5E5;
+    --arona-dark-blue: #4A5568;
+    --arona-bg-light: #F7FAFC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--arona-bg-light);
+    font-family: var(--font-main);
+    color: var(--arona-dark-blue);
+}
+
+.subpage-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* --- Header chung cho trang con --- */
+.subpage-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.subpage-header h1 {
+    font-size: 2.5rem;
+}
+
+.back-link {
+    align-self: flex-start;
+    margin-bottom: 2rem;
+    color: var(--arona-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* --- Trang STORY --- */
+.story-image-large img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.story-text h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.story-text p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+/* --- Trang TERMINAL --- */
+/* --- Trang TERMINAL --- */
+.terminal-body-bg { 
+    background-color: #1e2a56; 
+    overflow: hidden; /* Tránh cuộn trang ngoài terminal */
+}
+
+#terminal-container.fullscreen-terminal {
+    width: 100%;
+    height: 100vh;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.terminal-window {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 22, 41, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 10px S30px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: rgba(0,0,0,0.2);
+    flex-shrink: 0;
+}
+
+.back-link-terminal { 
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 0.9rem; 
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+.back-link-terminal:hover { opacity: 1; }
+
+.dots-group { display: flex; gap: 0.5rem; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.red { background-color: #ff5f56; }
+.dot.yellow { background-color: #ffbd2e; }
+.dot.green { background-color: #27c93f; }
+
+.terminal-body {
+    flex-grow: 1; 
+    padding: 1.5rem;
+    overflow-y: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    cursor: text;
+
+    /* Ẩn thanh cuộn */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.terminal-body::-webkit-scrollbar { display: none; }
+
+#terminal-output p, #terminal-output div {
+    white-space: pre-wrap;
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+}
+
+/* --- THÊM LẠI CÁC CLASS CẦN THIẾT --- */
+.input-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: #82A284; /* Màu prompt xanh lá */
+    margin-right: 0.5rem;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.2em;
+    background-color: #e0e0e0;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { background-color: transparent; }
+    50% { background-color: #e0e0e0; }
+}
+
+.autocomplete-suggestion {
+    color: rgba(224, 224, 224, 0.4);
+    pointer-events: none;
+}

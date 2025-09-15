@@ -85,22 +85,36 @@ body {
     column-gap: 1rem;
 }
 
+/* Style lại .gallery-item để chứa được cả ảnh và chữ */
 .gallery-item {
+    display: flex;
+    flex-direction: column; /* Xếp ảnh và chữ theo chiều dọc */
+    gap: 0.5rem; /* Khoảng cách giữa ảnh và chữ */
     margin-bottom: 1rem;
     break-inside: avoid;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-.gallery-item.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+
 .gallery-item img {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 10px;
+}
+
+.gallery-caption {
+    font-size: 0.85rem;
+    color: #a0aec0; /* Màu xám nhạt, không quá nổi bật */
+    text-align: center;
+    padding: 0 0.5rem;
+}
+
+/* Sửa lại .gallery-item.is-visible để không ảnh hưởng đến chú thích */
+.gallery-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* --- Footer --- */
