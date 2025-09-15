@@ -5,7 +5,7 @@ const charactersData = [
         id: "mahiru",
         name: "Mahiru Shiina",
         series: "The Angel Next Door Spoils Me Rotten",
-        thumbImage: "assets/images/characters/mahiru-thumb.jpg",
+        thumbImage: "assets/images/characters/mahiru.jpg",
         layoutType: "gentle", // <-- Từ "story" -> "gentle"
         layoutTag: "Gentle & Warm" // <-- Tag mới
     },
@@ -21,7 +21,7 @@ const charactersData = [
         id: "arona",
         name: "Arona",
         series: "Blue Archive",
-        thumbImage: "assets/images/characters/arona-thumb.jpg",
+        thumbImage: "assets/images/characters/arona.jpg",
         layoutType: "cheerful", // <-- Từ "interactive" -> "cheerful"
         layoutTag: "Cheerful & Bubbly" // <-- Tag mới
     },

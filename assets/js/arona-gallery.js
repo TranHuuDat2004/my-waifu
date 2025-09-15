@@ -5,20 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (galleryGrid) {
         
-        // --- CẤU HÌNH ẢNH CỦA ARONA ---
-        const imageSources = [
-            { 
-              path: 'assets/images/arona/', // Tạo một thư mục riêng cho gallery của Arona
-              prefix: 'Arona (',
-              suffix: ')',
-              ext: 'png', // Giả sử đã chuẩn hóa
-              count: 50 // Cập nhật tổng số ảnh của Arona
-            }
-            // Thêm các nguồn ảnh khác của Arona nếu có
-        ];
-
         // --- HÀM TỐI ƯU (Giữ nguyên) ---
-        function createImageItem(src, alt) {
+        function createImageItem(src, alt, caption) {
             const item = document.createElement('div');
             item.className = 'gallery-item';
             const preloader = new Image();
@@ -27,20 +15,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.src = src;
                 img.alt = alt;
                 item.appendChild(img);
+                if (caption) {
+                    const p = document.createElement('p');
+                    p.className = 'gallery-caption';
+                    p.textContent = caption;
+                    item.appendChild(p);
+                }
                 observer.observe(item);
             };
             preloader.src = src;
             return item;
         }
 
-        // --- LOGIC TẠO GALLERY (Giữ nguyên) ---
-        imageSources.forEach(source => {
-            for (let i = 1; i <= source.count; i++) {
-                const imageUrl = `${source.path}${source.prefix}${i}${source.suffix}.${source.ext}`;
-                const imageAlt = `Arona gallery image ${i}`;
-                const galleryItemElement = createImageItem(imageUrl, imageAlt);
-                galleryGrid.appendChild(galleryItemElement);
-            }
+        // --- LOGIC MỚI: TẠO GALLERY TỪ GACHAPOOL ---
+        // Lặp trực tiếp qua mảng gachaPool đã được tải từ file arona-data.js
+        gachaPool.forEach((gachaItem, index) => {
+            const imageUrl = gachaItem.img;
+            const imageAlt = `Arona gallery image ${index + 1}`;
+            // Chú thích chính là câu quote
+            const imageCaption = gachaItem.quote;
+
+            const galleryItemElement = createImageItem(imageUrl, imageAlt, imageCaption);
+            galleryGrid.appendChild(galleryItemElement);
         });
         
         // --- LOGIC HIỆU ỨNG CUỘN (Giữ nguyên) ---
