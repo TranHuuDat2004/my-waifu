@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arona's System Interface</title>
+
+    <!-- Google Fonts: Poppins cho giao diện hiện đại -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheet cho trang Arona -->
+    <link rel="stylesheet" href="assets/css/arona-style.css">
+</head>
+<body>
+
+    <!-- Container chính để căn giữa -->
+    <div class="os-section">
+        <div class="arona-os-container">
+            <!-- Header của "Hệ điều hành" -->
+            <header class="os-header">
+                <span id="os-time">10:10 AM</span>
+                <span class="os-title">S.C.H.A.L.E. Main OS</span>
+                <div class="os-icons">
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                </div>
+            </header>
+
+            <!-- Nội dung chính -->
+            <main class="os-main-content">
+                <!-- Panel hiển thị Arona -->
+                <div class="character-panel">
+                    <img src="assets/images/arona/Arona (1).png" alt="Arona" class="character-image">
+                </div>
+
+                <!-- Panel thông tin và tương tác -->
+                <div class="info-panel">
+                    <div class="profile-card glass-effect">
+                        <div class="profile-header">
+                            <img src="assets/images/arona/Arona (1).png" alt="Arona Avatar" class="profile-avatar">
+                            <div>
+                                <h2>Arona</h2>
+                                <p class="profile-subtitle">System Administrator of S.C.H.A.L.E.</p>
+                            </div>
+                        </div>
+                        <p class="profile-desc">"Sensei! Welcome back! Arona will do her best to support you today!"</p>
+                    </div>
+
+                    <div class="missions-card glass-effect">
+                        <h3>Explore More</h3>
+                        <ul>
+                            <li><a href="arona-story.html"><i class="fas fa-book-open"></i><span>Story</span></a></li>
+                            <li><a href="arona-terminal.html"><i class="fas fa-terminal"></i><span>Terminal</span></a></li>
+                            <li><a href="arona-gallery.html"><i class="fas fa-images"></i><span>Gallery</span></a></li>
+                        </ul>
+                    </div>
+
+                    <button class="recruit-button" id="recruit-button">
+                        <i class="fas fa-star"></i> Recruit Arona!
+                    </button>
+                </div>
+            </main>
+
+            <!-- Dock chứa các liên kết -->
+            <footer class="os-dock">
+                <a href="index.html" class="dock-item" aria-label="Home"><i class="fas fa-home"></i></a>
+                <a href="https://github.com/TranHuuDat2004" target="_blank" class="dock-item" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/tranhuudat2004" target="_blank" class="dock-item" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:tranhuudat.cv@gmail.com" class="dock-item" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Modal cho kết quả "Gacha" -->
+    <div class="gacha-modal" id="gacha-modal">
+        <div class="modal-backdrop" id="modal-backdrop"></div>
+        <div class="modal-content glass-effect">
+            <img src="assets/images/arona/Arona (19).png" alt="Arona Chibi" id="gacha-image">
+            <p id="gacha-quote">"Sensei, you got me! Hehe~"</p>
+        </div>
+    </div>
+
+    <!-- Audio cho hiệu ứng âm thanh -->
+    <audio id="recruit-sound" src="assets/sounds/recruit_sound.mp3" preload="auto"></audio>
+    
+    <!-- Script cho trang Arona -->
+    <script src="assets/js/arona.js"></script>
+</body>
+</html>

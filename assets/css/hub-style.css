@@ -1,0 +1,166 @@
+/* --- CÀI ĐẶT CHUNG & BIẾN --- */
+:root {
+    --font-display: 'Cinzel', serif;
+    --font-body: 'Inter', sans-serif;
+    --color-bg: #FBF9F6;
+    --color-text: #4a4a4a;
+    --color-heading: #2c2c2c;
+    --color-primary: #bcaaa4; /* Nâu nhạt thanh lịch */
+    --color-white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg);
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- HEADER --- */
+.main-header {
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.main-header h1 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--color-heading);
+    letter-spacing: 2px;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero-section h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-heading);
+    margin-bottom: 0.5rem;
+}
+
+.hero-section p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- CHARACTER GRID --- */
+.character-select {
+    padding-bottom: 4rem;
+}
+
+.character-grid {
+    display: grid;
+    /* Lưới responsive: tự động điều chỉnh số cột */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.character-card {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Đảm bảo ảnh luôn vuông */
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cắt ảnh để lấp đầy khung mà không méo */
+    transition: transform 0.4s ease;
+}
+
+.character-card:hover .card-image img {
+    transform: scale(1.05); /* Hiệu ứng zoom nhẹ khi hover */
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-series {
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.card-name {
+    font-size: 1.25rem;
+    color: var(--color-heading);
+    margin-bottom: 0.75rem;
+}
+
+/* Tìm và thay thế toàn bộ khối này trong hub-style.css */
+
+.layout-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+/* --- BẢNG MÀU MỚI DỰA TRÊN TÍNH CÁCH --- */
+
+/* Mahiru - Màu hồng đào ấm áp */
+.tag-gentle { background-color: #fff0f5; color: #d87093; } 
+
+/* Hoshino - Màu xanh da trời thư thái */
+.tag-relaxed { background-color: #e0f7fa; color: #00838f; }
+
+/* Arona - Màu vàng nắng vui vẻ */
+.tag-cheerful { background-color: #fffde7; color: #fbc02d; } 
+
+/* Shiroko - Màu xám xanh lạnh lùng */
+.tag-cool { background-color: #eceff1; color: #455a64; } 
+
+/* Special Week - Màu xanh lá cây năng động */
+.tag-energetic { background-color: #e8f5e9; color: #43a047; } 
+
+/* --- FOOTER --- */
+.main-footer {
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE CHO MÀN HÌNH NHỎ --- */
+@media (max-width: 768px) {
+    .main-header h1 { font-size: 2rem; }
+    .hero-section { padding: 3rem 0; }
+    .hero-section h2 { font-size: 1.5rem; }
+    .container { padding: 0 1rem; }
+}

@@ -1,3 +1,5 @@
+// mahiru-gallery.js
+
 document.addEventListener('DOMContentLoaded', () => {
     // ======================================================
     // LOGIC CHUNG CHO TẤT CẢ CÁC TRANG

@@ -1,0 +1,128 @@
+/* ====================================================== */
+/*        ARONA'S GALLERY PAGE STYLESHEET (arona-gallery.css)    */
+/* ====================================================== */
+
+/* --- BIẾN MÀU SẮC VÀ FONT --- */
+:root {
+    --font-main: 'Poppins', sans-serif;
+    --arona-blue: #70D1F4;
+    --arona-pink: #F4AAB9;
+    --arona-white: #FFFFFF;
+    --arona-dark-blue: #1E2A56;
+}
+
+/* --- CÀI ĐẶT CHUNG --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    background-color: #f7fafc; /* Nền trắng hơi xám */
+    font-family: var(--font-main);
+    color: var(--arona-dark-blue);
+    background-image: url('data:image/png;base64,...'); /* Texture giấy */
+}
+
+/* --- Nút Back to Arona's Page --- */
+.gallery-nav {
+    padding: 1.5rem 2rem;
+}
+
+.home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--arona-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+.home-link:hover {
+    color: var(--arona-dark-blue);
+}
+
+/* --- Section chính --- */
+#character-sheet-section {
+    padding: 2rem 0 5rem 0;
+}
+
+/* Container 60-70% trung tâm */
+.main-content-area {
+    width: 70%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- Phần Scrapbook --- */
+.scrapbook-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.scrapbook-card {
+    background-color: var(--arona-white);
+    padding: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.scrapbook-card:hover { transform: scale(1.02); }
+.scrapbook-card img { width: 100%; display: block; }
+.profile-card { flex-basis: 55%; transform: rotate(-2deg); }
+.reference-card { flex-basis: 45%; transform: rotate(1.5deg); }
+
+/* ... (Bạn có thể giữ lại các style .deco-swirl nếu muốn) ... */
+
+/* --- Lưới ảnh Gallery kiểu Pinterest --- */
+.gallery-grid {
+    column-count: 4;
+    column-gap: 1rem;
+}
+
+.gallery-item {
+    margin-bottom: 1rem;
+    break-inside: avoid;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.gallery-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+/* --- Footer --- */
+footer {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+footer p {
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #a0aec0; /* Màu xám nhạt */
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1200px) {
+    .main-content-area { width: 85%; }
+    .gallery-grid { column-count: 3; }
+}
+@media (max-width: 768px) {
+    .main-content-area { width: 95%; }
+    .scrapbook-container { flex-direction: column; }
+    .profile-card, .reference-card { transform: rotate(0); width: 100%; }
+    .gallery-grid { column-count: 2; }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Waifu Collection - A Showcase by Tran Huu Dat</title>
+
+    <!-- Google Fonts: Cinzel cho tiêu đề, Inter cho nội dung -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet cho trang chủ -->
+    <link rel="stylesheet" href="assets/css/hub-style.css">
+</head>
+
+<body>
+
+    <!-- ======================= HEADER ======================= -->
+    <header class="main-header">
+        <div class="container">
+            <h1>My Waifu Collection</h1>
+        </div>
+    </header>
+
+    <main>
+        <!-- ======================= HERO SECTION ======================= -->
+        <section class="hero-section">
+            <div class="container">
+                <h2>A Gallery of Cherished Characters</h2>
+                <p>Each character is a unique story, presented in a layout crafted just for them. Click on a card to
+                    explore their world.</p>
+            </div>
+        </section>
+
+        <!-- ======================= CHARACTER GRID ======================= -->
+        <section class="character-select">
+            <div class="container">
+                <div class="character-grid">
+                    <!-- JavaScript sẽ tự động chèn các card nhân vật vào đây -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Trần Hữu Đạt. All rights reserved.</p>
+            <p>A personal project built with love and passion.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script nhỏ để tự động cập nhật năm
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- XÓA SCRIPT CŨ, THÊM 2 SCRIPT MỚI NÀY -->
+    <script src="assets/js/data-hub.js"></script>
+    <script src="assets/js/hub-script.js"></script>
+</body>
+
+</html>

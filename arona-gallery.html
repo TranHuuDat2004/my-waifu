@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arona's Gallery</title>
+
+    <!-- Google Fonts và Font Awesome (Có thể dùng chung với các trang khác) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Dùng chung file style.css của Mahiru vì layout giống nhau -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Thêm file arona-style.css để có thể tùy chỉnh màu sắc nếu muốn -->
+    <link rel="stylesheet" href="assets/css/arona-gallery.css"> 
+</head>
+<body>
+    <div class="gallery-nav">
+        <a href="arona.html" class="home-link">
+            <i class="fas fa-arrow-left"></i> Back to Arona's Page
+        </a>
+    </div>
+
+    <!-- Section Giới thiệu và Gallery -->
+    <section id="character-sheet-section">
+        <div class="main-content-area">
+            <!-- Phần Giới thiệu kiểu Scrapbook -->
+            <div class="scrapbook-container">
+                <span class="deco-swirl deco-swirl-top"></span>
+                <span class="deco-label deco-label-visual">Visuals</span>
+
+                <div class="scrapbook-card profile-card">
+                    <!-- THAY ẢNH CỦA ARONA VÀO ĐÂY -->
+                    <img src="assets/images/arona/arona-profile-card.jpg" alt="Arona profile sheet">
+                </div>
+
+                <div class="scrapbook-card reference-card">
+                    <!-- THAY ẢNH CỦA ARONA VÀO ĐÂY -->
+                    <img src="assets/images/arona/arona-reference-sheet.jpg" alt="Arona outfit reference">
+                </div>
+
+                <span class="deco-swirl deco-swirl-bottom"></span>
+            </div>
+
+            <!-- Lưới ảnh Gallery -->
+            <div class="gallery-grid">
+                <!-- JavaScript sẽ tự động chèn các ảnh của Arona vào đây -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer có thể tùy chỉnh cho Arona -->
+    <footer>
+        <p>“Sensei, let's make lots of happy memories together!”</p>
+    </footer>
+
+    <!-- Script riêng cho gallery của Arona -->
+    <script src="assets/js/arona-gallery.js"></script>
+</body>
+</html>
