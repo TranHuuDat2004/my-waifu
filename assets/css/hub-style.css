@@ -149,6 +149,20 @@ body {
 /* Special Week - Màu xanh lá cây năng động */
 .tag-energetic { background-color: #e8f5e9; color: #43a047; } 
 
+
+/* Alya - Màu tím lavender thanh lịch */
+.tag-elegant { background-color: #e8eaf6; color: #3f51b5; }
+
+/* Kitasan - Màu cam/đỏ lễ hội */
+.tag-festive { background-color: #fff3e0; color: #e65100; }
+
+/* Anya - Màu hồng tinh nghịch */
+.tag-playful { background-color: #fce4ec; color: #d81b60; }
+
+/* Seiha - Màu vàng gold trong sáng */
+.tag-pure { background-color: #fff9c4; color: #f57f17; }
+
+
 /* --- FOOTER --- */
 .main-footer {
     padding: 2rem 0;

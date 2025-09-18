@@ -1,0 +1,118 @@
+:root {
+    --font-heading: 'Noto Serif JP', serif;
+    --font-body: 'Noto Sans JP', sans-serif;
+    --kitasan-black: #2A2A2A;
+    --kitasan-gold: #E5B355;
+    --kitasan-red: #C73E4A;
+    --kitasan-bg: #FCFAF5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #f1f1f1;
+    font-family: var(--font-body);
+    color: var(--kitasan-black);
+}
+
+.festival-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    background-color: var(--kitasan-bg);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 2rem 4rem;
+    position: relative;
+    /* Thêm họa tiết truyền thống làm nền */
+    background-image:
+        radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0);
+    background-size: 20px 20px;
+}
+
+.festival-header .back-link {
+    color: var(--kitasan-gold);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* --- Hero Banner --- */
+.hero-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 0;
+}
+.hero-content { text-align: center; flex-basis: 50%; }
+.character-name {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    color: var(--kitasan-black);
+    line-height: 1.1;
+}
+.character-subtitle {
+    font-size: 1.2rem;
+    color: var(--kitasan-gold);
+    margin-top: 1rem;
+    letter-spacing: 1px;
+}
+.hero-image { flex-basis: 45%; }
+.hero-image img { width: 100%; max-width: 500px; height: auto; }
+
+/* --- Đường kẻ ngăn cách --- */
+.section-divider {
+    height: 3px;
+    background-color: var(--kitasan-red);
+    margin: 2rem 0;
+    border-radius: 5px;
+}
+
+/* --- Profile Section --- */
+.profile-section { padding: 2rem 0; text-align: center; }
+.profile-section h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+.profile-section .profile-text {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.9;
+}
+.profile-section p { margin-bottom: 1rem; }
+
+/* --- Gallery Section --- */
+#gallery-section { padding: 2rem 0; }
+.gallery-header { text-align: center; margin-bottom: 3rem; }
+.gallery-header h2 { font-family: var(--font-heading); font-size: 2.5rem; }
+.gallery-header p { color: var(--kitasan-gold); margin-top: 0.5rem; }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    opacity: 0; transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+.gallery-item.is-visible { opacity: 1; transform: translateY(0); }
+.gallery-item:hover { transform: scale(1.03); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+.gallery-item img { width: 100%; height: auto; display: block; }
+
+/* --- Footer --- */
+.festival-footer {
+    text-align: center; margin-top: 4rem; padding-top: 2rem;
+    border-top: 1px solid #eee;
+    font-family: var(--font-heading);
+    font-size: 1.8rem; color: var(--kitasan-gold);
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+    .festival-container { padding: 2rem; }
+    .hero-banner { flex-direction: column-reverse; }
+    .character-name { font-size: 4rem; }
+}
