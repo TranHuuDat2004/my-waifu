@@ -4,42 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Waifu Collection - A Showcase by Tran Huu Dat</title>
+    <title>My Waifu Collection - Premium Edition</title>
 
-    <!-- Google Fonts: Cinzel cho tiêu đề, Inter cho nội dung -->
+    <!-- Google Fonts: Cinzel & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <!-- Stylesheet cho trang chủ -->
-    <link rel="stylesheet" href="assets/css/hub-style.css">
+    <!-- New Premium Stylesheet -->
+    <link rel="stylesheet" href="assets/css/premium-style.css">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
 
     <!-- ======================= HEADER ======================= -->
-    <header class="main-header">
-        <div class="container">
-            <h1>My Waifu Collection</h1>
+    <header class="main-header" id="mainHeader">
+        <div class="container header-content">
+            <div class="logo">Waifu<span style="color: var(--color-accent)">Hub</span></div>
+            <!-- Future Navigation could go here -->
         </div>
     </header>
 
     <main>
         <!-- ======================= HERO SECTION ======================= -->
         <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">A Collection of <br>Digital Souls</h1>
+                <p class="hero-subtitle">Curated with passion. Presented with elegance.</p>
+                
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search by name or series...">
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= FILTER SECTION ======================= -->
+        <section class="filter-section">
             <div class="container">
-                <h2>A Gallery of Cherished Characters</h2>
-                <p>Each character is a unique story, presented in a layout crafted just for them. Click on a card to
-                    explore their world.</p>
+                <div class="filter-wrapper" id="filterWrapper">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <!-- JavaScript will populate other filters -->
+                </div>
             </div>
         </section>
 
         <!-- ======================= CHARACTER GRID ======================= -->
         <section class="character-select">
             <div class="container">
-                <div class="character-grid">
-                    <!-- JavaScript sẽ tự động chèn các card nhân vật vào đây -->
+                <div class="character-grid" id="characterGrid">
+                    <!-- JavaScript handles insertion here -->
                 </div>
             </div>
         </section>
@@ -48,17 +65,19 @@
     <!-- ======================= FOOTER ======================= -->
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; <span id="currentYear"></span> Trần Hữu Đạt. All rights reserved.</p>
-            <p>A personal project built with love and passion.</p>
+            <div class="footer-nav">
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">Gallery</a>
+                <a href="#" class="footer-link">Contact</a>
+            </div>
+            <p class="copyright">&copy; <span id="currentYear"></span> Tran Huu Dat. Crafted for the love of 2D.</p>
         </div>
     </footer>
 
     <script>
-        // Script nhỏ để tự động cập nhật năm
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 
-    <!-- XÓA SCRIPT CŨ, THÊM 2 SCRIPT MỚI NÀY -->
     <script src="assets/js/data-hub.js"></script>
     <script src="assets/js/hub-script.js"></script>
 </body>
