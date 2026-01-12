@@ -56,7 +56,23 @@ const charactersData = [
         thumbImage: "assets/images/characters/seiha-thumb.jpg", // Bạn cần tạo ảnh này
         layoutType: "pure", // Tag mới
         layoutTag: "Pure & Heartwarming" // Tag mới
+    },
+    {
+        id: "miku",
+        name: "Miku Nakano",
+        series: "The Quintessential Quintuplets",
+        thumbImage: "assets/images/characters/miku-thumb.jpg",
+        layoutType: "calm",
+        layoutTag: "Calm & Resilient"
+    },
+    {
+        id: "nino",
+        name: "Nino Nakano",
+        series: "The Quintessential Quintuplets",
+        thumbImage: "assets/images/characters/nino-thumb.jpg",
+        layoutType: "elegant",
+        layoutTag: "Confident & Stylish"
     }
 
-    
+
 ];

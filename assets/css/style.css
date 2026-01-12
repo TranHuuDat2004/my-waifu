@@ -38,6 +38,34 @@ main {
     /* Thêm khoảng đệm ở trên cùng */
 }
 
+/* --- NÚT BACK TO HOME --- */
+.back-home-btn {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1000;
+    text-decoration: none;
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.back-home-btn:hover {
+    transform: translateY(-3px);
+    background: white;
+    color: var(--color-text);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
 /* --- PHẦN 1: LANDING PAGE CỦA MAHIRU --- */
 #landing-page {
     display: flex;
@@ -529,7 +557,8 @@ footer p {
 /* ====================================================== */
 #gallery-section {
     padding: 5rem 2rem;
-    background-color: #fdfdfd; /* Màu nền hơi khác một chút để tách biệt */
+    background-color: #fdfdfd;
+    /* Màu nền hơi khác một chút để tách biệt */
     text-align: center;
 }
 
@@ -553,12 +582,15 @@ footer p {
 /* --- 1. Lưới ảnh kiểu Pinterest (Masonry Layout) --- */
 .gallery-grid {
     /* Sử dụng CSS Columns để tạo hiệu ứng Masonry */
-    column-count: 5; /* Mặc định 4 cột trên màn hình lớn */
-    column-gap: 1rem; /* Khoảng cách giữa các cột */
+    column-count: 5;
+    /* Mặc định 4 cột trên màn hình lớn */
+    column-gap: 1rem;
+    /* Khoảng cách giữa các cột */
 }
 
 .gallery-item {
-    margin-bottom: 1rem; /* Khoảng cách giữa các ảnh theo chiều dọc */
+    margin-bottom: 1rem;
+    /* Khoảng cách giữa các ảnh theo chiều dọc */
     /* QUAN TRỌNG: Ngăn một ảnh bị cắt làm đôi qua 2 cột */
     break-inside: avoid;
 }
@@ -566,8 +598,10 @@ footer p {
 .gallery-item img {
     width: 100%;
     height: auto;
-    display: block; /* Loại bỏ khoảng trắng thừa dưới ảnh */
-    border-radius: 10px; /* Bo góc ảnh cho mềm mại */
+    display: block;
+    /* Loại bỏ khoảng trắng thừa dưới ảnh */
+    border-radius: 10px;
+    /* Bo góc ảnh cho mềm mại */
 }
 
 /* --- 2. Hiệu ứng Fade In / Fade Out --- */
@@ -589,19 +623,22 @@ footer p {
 /* --- 3. Responsive cho Lưới ảnh --- */
 @media (max-width: 1200px) {
     .gallery-grid {
-        column-count: 4; /* 3 cột cho tablet */
+        column-count: 4;
+        /* 3 cột cho tablet */
     }
 }
 
 @media (max-width: 768px) {
     .gallery-grid {
-        column-count: 3; /* 2 cột cho điện thoại */
+        column-count: 3;
+        /* 2 cột cho điện thoại */
     }
 }
 
 @media (max-width: 480px) {
     .gallery-grid {
-        column-count: 2; /* 1 cột trên màn hình rất nhỏ */
+        column-count: 2;
+        /* 1 cột trên màn hình rất nhỏ */
     }
 }
 
@@ -610,20 +647,26 @@ footer p {
 /* ====================================================== */
 
 #character-sheet-section {
-    padding: 5rem 0; /* Padding trên dưới */
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dHTZ2dnu7u7MzMzPz8/Pz8/k5OTg4ODf39/X19fS0tLT09Pb29vR0dHq6urJycnY2Njh4eHf39/Z2dnb29vT09PGxsbp6enp6enY2NjBwcG/v78E8SswAAAAVklEQVR4nN3UyQ2AMBAA0WysBC8/OMv/bylJQDQkAQSf6sczR4c9K/q5iWwP9eNFlwX9aB1lAhv4A2wD/iAmU/iBE0sBAxQB8Xg38A18A/sB/ok8/gD/BDD/AAT/wB7A/wP8/z/D/38C/wD/H/4F/h/8/38G/x/9A/6B/0f/Qf+A/0f/wf+A/0f/g/8f/wf+P/6D/0P/B//H/wf/h/8f/wf+D/8f/i/+f/wP/B//H/4//AP8P/h/+P/4P/h/+f/wP/B/8H//P/h//H/4//B/8H//P/h/8H/4f/B//H/wv/AAAA/8BANtL1Y2z5A7AAAAAElFTSuQmCC'); /* Texture giấy */
+    padding: 5rem 0;
+    /* Padding trên dưới */
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dHTZ2dnu7u7MzMzPz8/Pz8/k5OTg4ODf39/X19fS0tLT09Pb29vR0dHq6urJycnY2Njh4eHf39/Z2dnb29vT09PGxsbp6enp6enY2NjBwcG/v78E8SswAAAAVklEQVR4nN3UyQ2AMBAA0WysBC8/OMv/bylJQDQkAQSf6sczR4c9K/q5iWwP9eNFlwX9aB1lAhv4A2wD/iAmU/iBE0sBAxQB8Xg38A18A/sB/ok8/gD/BDD/AAT/wB7A/wP8/z/D/38C/wD/H/4F/h/8/38G/x/9A/6B/0f/Qf+A/0f/wf+A/0f/g/8f/wf+P/6D/0P/B//H/wf/h/8f/wf+D/8f/i/+f/wP/B//H/4//AP8P/h/+P/4P/h/+f/wP/B/8H//P/h//H/4//B/8H//P/h/8H/4f/B//H/wv/AAAA/8BANtL1Y2z5A7AAAAAElFTSuQmCC');
+    /* Texture giấy */
 }
 
 /* --- QUAN TRỌNG: Tạo bố cục 20-60-20 --- */
 .main-content-area {
-    width: 60%; /* Nội dung chính chiếm 60% */
-    margin: 0 auto; /* Tự động căn giữa, tạo ra 20% lề mỗi bên */
-    max-width: 1600px; /* Giới hạn chiều rộng tối đa trên màn hình siêu lớn */
+    width: 60%;
+    /* Nội dung chính chiếm 60% */
+    margin: 0 auto;
+    /* Tự động căn giữa, tạo ra 20% lề mỗi bên */
+    max-width: 1600px;
+    /* Giới hạn chiều rộng tối đa trên màn hình siêu lớn */
 }
 
 /* --- Phần giới thiệu Scrapbook --- */
 .scrapbook-container {
-    position: relative; /* Key để định vị các yếu tố trang trí */
+    position: relative;
+    /* Key để định vị các yếu tố trang trí */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -640,7 +683,8 @@ footer p {
 }
 
 .scrapbook-card:hover {
-    transform: scale(1.02); /* Hiệu ứng phóng to nhẹ khi hover */
+    transform: scale(1.02);
+    /* Hiệu ứng phóng to nhẹ khi hover */
 }
 
 .scrapbook-card img {
@@ -650,12 +694,14 @@ footer p {
 
 .profile-card {
     flex-basis: 55%;
-    transform: rotate(-2deg); /* Tạo hiệu ứng nghiêng */
+    transform: rotate(-2deg);
+    /* Tạo hiệu ứng nghiêng */
 }
 
 .reference-card {
     flex-basis: 45%;
-    transform: rotate(1.5deg); /* Tạo hiệu ứng nghiêng */
+    transform: rotate(1.5deg);
+    /* Tạo hiệu ứng nghiêng */
 }
 
 /* --- Các yếu tố trang trí --- */
@@ -668,21 +714,25 @@ footer p {
     background-repeat: no-repeat;
     opacity: 0.3;
 }
+
 .deco-swirl-top {
     top: -50px;
     left: 20px;
 }
+
 .deco-swirl-bottom {
     bottom: -60px;
     right: 30px;
     transform: rotate(90deg);
 }
+
 .deco-label {
     position: absolute;
     font-family: var(--font-script);
     font-size: 1.5rem;
     color: var(--color-accent);
 }
+
 .deco-label-visual {
     bottom: 20px;
     left: 40px;
@@ -692,20 +742,27 @@ footer p {
 /* --- Responsive cho toàn bộ section --- */
 @media (max-width: 1200px) {
     .main-content-area {
-        width: 80%; /* Tăng chiều rộng nội dung trên tablet */
+        width: 80%;
+        /* Tăng chiều rộng nội dung trên tablet */
     }
 }
 
 @media (max-width: 992px) {
     .main-content-area {
-        width: 90%; /* Tăng chiều rộng hơn nữa */
+        width: 90%;
+        /* Tăng chiều rộng hơn nữa */
     }
+
     .scrapbook-container {
-        flex-direction: column; /* Chuyển thành layout cột */
+        flex-direction: column;
+        /* Chuyển thành layout cột */
         gap: 3rem;
     }
-    .profile-card, .reference-card {
-        transform: rotate(0); /* Bỏ hiệu ứng nghiêng trên mobile */
+
+    .profile-card,
+    .reference-card {
+        transform: rotate(0);
+        /* Bỏ hiệu ứng nghiêng trên mobile */
         width: 100%;
     }
 }
@@ -716,5 +773,6 @@ footer p {
     justify-content: center;
     min-height: 100vh;
     padding: 2rem;
-    background-color: #1a1b26; /* Một màu nền tối khác */
+    background-color: #1a1b26;
+    /* Một màu nền tối khác */
 }

@@ -1,0 +1,318 @@
+/* assets/css/miku-style.css */
+
+/* --- FONTS & VARS --- */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap');
+
+:root {
+    --color-primary: #3b7eeb;
+    /* Miku Blue */
+    --color-secondary: #0056b3;
+    /* Darker Blue */
+    --color-accent: #88c425;
+    /* Matcha Green */
+    --color-bg: #f5f8fc;
+    /* Very light blue-grey */
+    --color-paper: #ffffff;
+    --color-text: #4a5568;
+    --font-hand: 'Caveat', cursive;
+    --font-body: 'Nunito', sans-serif;
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 10px 15px -3px rgba(59, 126, 235, 0.2), 0 4px 6px -2px rgba(59, 126, 235, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    /* Optional: Subtle grid pattern for "notebook" feel */
+    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- HEADER --- */
+.miku-header {
+    background: var(--color-paper);
+    padding: 1.5rem 0;
+    border-bottom: 2px solid var(--color-primary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.miku-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-link {
+    text-decoration: none;
+    color: var(--color-secondary);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.back-link:hover {
+    transform: translateX(-5px);
+}
+
+.header-title {
+    font-family: var(--font-hand);
+    font-size: 2rem;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* --- HERO / PROFILE SECTION --- */
+.profile-section {
+    padding: 4rem 0;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    background: var(--color-paper);
+    margin: 3rem auto;
+    border-radius: 20px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative blue strip */
+.profile-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: var(--color-primary);
+}
+
+.profile-img-container {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.profile-img {
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 10px 10px 0 var(--color-bg), 10px 10px 0 2px var(--color-primary);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.profile-info {
+    flex: 1.5;
+    padding-right: 3rem;
+}
+
+.profile-name {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 800;
+}
+
+.profile-subtitle {
+    font-family: var(--font-hand);
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.profile-desc {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.likes-list {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.like-item {
+    background: #eef5ff;
+    color: var(--color-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.like-item i {
+    color: var(--color-accent);
+}
+
+/* --- QUOTE SECTION --- */
+.quote-section {
+    text-align: center;
+    padding: 3rem 0;
+    margin-bottom: 3rem;
+}
+
+.quote-card {
+    background: var(--color-primary);
+    color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(59, 126, 235, 0.3);
+}
+
+.quote-text {
+    font-family: var(--font-hand);
+    font-size: 2rem;
+    line-height: 1.4;
+    font-style: italic;
+}
+
+.quote-author {
+    margin-top: 1rem;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+/* --- GALLERY SECTION --- */
+.gallery-section {
+    padding-bottom: 5rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-secondary);
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 4px;
+    background: var(--color-accent);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Polaroid Style Cards */
+.polaroid {
+    background: white;
+    padding: 1rem 1rem 3rem 1rem;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: rotate(var(--rotation, 0deg));
+    position: relative;
+}
+
+.polaroid:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    box-shadow: var(--shadow-hover);
+    z-index: 10;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 250px;
+    /* Fixed height container */
+    object-fit: cover;
+    background: #eee;
+    margin-bottom: 0.5rem;
+}
+
+.polaroid-caption {
+    font-family: var(--font-hand);
+    font-size: 1.25rem;
+    color: var(--color-text);
+    text-align: center;
+    position: absolute;
+    bottom: 0.8rem;
+    left: 0;
+    width: 100%;
+}
+
+/* Tape effect */
+.polaroid::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    backdrop-filter: blur(2px);
+}
+
+/* --- FOOTER --- */
+.miku-footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--color-paper);
+    border-top: 1px solid #e2e8f0;
+    color: var(--color-secondary);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+
+    .profile-img-container {
+        margin-bottom: 2rem;
+    }
+
+    .profile-info {
+        padding-right: 0;
+    }
+
+    .likes-list {
+        justify-content: center;
+    }
+}

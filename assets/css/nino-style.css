@@ -1,0 +1,341 @@
+/* assets/css/nino-style.css */
+
+/* --- FONTS & VARS --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+    --color-primary: #8e44ad;
+    /* Nino Purple */
+    --color-dark: #2c3e50;
+    --color-light: #fdf2f8;
+    /* Very light pink/purple */
+    --color-accent: #e056fd;
+    --color-white: #ffffff;
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+
+    --shadow-elegant: 0 15px 30px rgba(142, 68, 173, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- HEADER --- */
+.nino-header {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.back-link {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: var(--color-primary);
+}
+
+.brand {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* Center branding if possible, or just keep flow */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.brand span {
+    color: var(--color-primary);
+}
+
+.nav-links a {
+    margin-left: 2rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+    padding: 4rem 0;
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 4rem;
+}
+
+.hero-label {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: var(--color-dark);
+}
+
+.hero-title span {
+    display: block;
+    font-style: italic;
+    color: var(--color-primary);
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 500px;
+    color: #666;
+}
+
+.hero-btn {
+    display: inline-block;
+    border: 2px solid var(--color-dark);
+    padding: 1rem 3rem;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.hero-btn:hover {
+    background: var(--color-dark);
+    color: white;
+}
+
+.hero-image {
+    flex: 1;
+    position: relative;
+}
+
+.main-img {
+    width: 100%;
+    height: auto;
+    box-shadow: var(--shadow-elegant);
+    filter: contrast(1.05);
+}
+
+/* Background decorative block */
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--color-primary);
+    z-index: -1;
+}
+
+/* --- RULES SECTION (Editorial Style) --- */
+.rules-section {
+    background: var(--color-light);
+    padding: 6rem 0;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.rule-card {
+    background: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.rule-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-elegant);
+}
+
+.rule-number {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--color-primary);
+    opacity: 0.3;
+    margin-bottom: 1rem;
+}
+
+.rule-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.rule-text {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+}
+
+/* --- GALLERY (Instagram Style) --- */
+.gallery-section {
+    padding: 6rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.insta-item {
+    position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.insta-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.insta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 62, 80, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.insta-item:hover .insta-overlay {
+    opacity: 1;
+}
+
+.insta-item:hover .insta-img {
+    transform: scale(1.1);
+}
+
+.insta-stats {
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* --- FOOTER --- */
+.nino-footer {
+    background: var(--color-dark);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.social-icons {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.social-icons a {
+    margin: 0 1rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--color-primary);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-section {
+        flex-direction: column-reverse;
+        padding-top: 2rem;
+    }
+
+    .hero-text {
+        padding-right: 0;
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .rules-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}

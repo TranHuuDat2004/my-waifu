@@ -2,22 +2,23 @@
 :root {
     --font-display: 'Cinzel', serif;
     --font-body: 'Inter', sans-serif;
-    
+
     /* Dark Theme Palette */
     --color-bg: #0f0f13;
     --color-surface: #1a1a20;
     --color-surface-hover: #25252e;
-    
+
     /* Text Colors */
     --color-text-primary: #e0e0e0;
     --color-text-secondary: #a0a0a0;
-    --color-accent: #d4af37; /* Metallic Gold */
+    --color-accent: #d4af37;
+    /* Metallic Gold */
     --color-accent-glow: rgba(212, 175, 55, 0.3);
-    
+
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, #1a1a20 0%, #0f0f13 100%);
     --gradient-card: linear-gradient(180deg, rgba(26, 26, 32, 0.8) 0%, rgba(15, 15, 19, 0.95) 100%);
-    
+
     /* Effects */
     --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.3);
     --shadow-glow: 0 0 20px var(--color-accent-glow);
@@ -78,30 +79,34 @@ body {
 
 /* --- HERO SECTION --- */
 .hero-section {
-    height: 80vh;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at center, #2a2a35 0%, #0f0f13 70%);
+    /* Updated Background */
+    background: url('../images/characters/Gotoubun.webp') no-repeat center center/cover;
+
+    /* Fix for pixelated image on large screens */
+    max-width: 1400px;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 100px;
+    /* Space for fixed header */
 }
 
-/* Animated background elements */
+/* Overlay for text readability */
 .hero-section::before {
     content: '';
     position: absolute;
-    width: 150%;
-    height: 150%;
-    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==');
-    opacity: 0.3;
-    animation: rotate 60s linear infinite;
-}
-
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(15, 15, 19, 0.3) 0%, rgba(15, 15, 19, 0.8) 100%);
+    z-index: 0;
 }
 
 .hero-content {
@@ -174,11 +179,12 @@ body {
 .filter-section {
     padding: 2rem 0;
     position: sticky;
-    top: 80px; /* Below header */
+    top: 80px;
+    /* Below header */
     z-index: 90;
     background: rgba(15, 15, 19, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     margin-bottom: 3rem;
 }
 
@@ -191,7 +197,7 @@ body {
 
 .filter-btn {
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--color-text-secondary);
     padding: 0.6rem 1.5rem;
     border-radius: 30px;
@@ -201,7 +207,8 @@ body {
     font-family: var(--font-body);
 }
 
-.filter-btn:hover, .filter-btn.active {
+.filter-btn:hover,
+.filter-btn.active {
     background: var(--color-accent);
     color: #000;
     border-color: var(--color-accent);
@@ -239,7 +246,8 @@ body {
 .card-image-wrapper {
     position: relative;
     width: 100%;
-    padding-top: 120%; /* Portrait aspect ratio */
+    padding-top: 120%;
+    /* Portrait aspect ratio */
     overflow: hidden;
 }
 
@@ -341,7 +349,15 @@ body {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    .hero-title { font-size: 2.5rem; }
-    .container { padding: 0 1.5rem; }
-    .card-content { padding: 1.5rem; }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
 }
