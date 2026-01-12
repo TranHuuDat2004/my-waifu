@@ -72,6 +72,30 @@ const charactersData = [
         thumbImage: "assets/images/characters/nino-thumb.jpg",
         layoutType: "elegant",
         layoutTag: "Confident & Stylish"
+    },
+    {
+        id: "itsuki",
+        name: "Itsuki Nakano",
+        series: "The Quintessential Quintuplets",
+        thumbImage: "assets/images/characters/itsuki-thumb.jpg",
+        layoutType: "calm", /* Reusing calm layout for elegant look */
+        layoutTag: "Serious & Foodie"
+    },
+    {
+        id: "ichika",
+        name: "Ichika Nakano",
+        series: "The Quintessential Quintuplets",
+        thumbImage: "assets/images/characters/ichika-thumb.jpg",
+        layoutType: "elegant",
+        layoutTag: "Playful & Mature"
+    },
+    {
+        id: "yotsuba",
+        name: "Yotsuba Nakano",
+        series: "The Quintessential Quintuplets",
+        thumbImage: "assets/images/characters/yotsuba-thumb.jpg",
+        layoutType: "cute",
+        layoutTag: "Energetic & Sporty"
     }
 
 
