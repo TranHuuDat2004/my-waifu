@@ -13,7 +13,7 @@ const charactersData = [
         id: "hoshino",
         name: "Takanashi Hoshino",
         series: "Blue Archive",
-        thumbImage: "assets/images/characters/hoshino-thumb.jpg",
+        thumbImage: "assets/images/characters/hoshino1.jpg",
         layoutType: "relaxed", // <-- Từ "datasheet" -> "relaxed"
         layoutTag: "Relaxed & Cozy" // <-- Tag mới
     },
@@ -29,7 +29,7 @@ const charactersData = [
         id: "kitasan-black",
         name: "Kitasan Black",
         series: "Uma Musume Pretty Derby",
-        thumbImage: "assets/images/characters/kitasan-black-thumb.jpg", // Bạn cần tạo ảnh này
+        thumbImage: "assets/images/characters/kitasan-black.jpg", // Bạn cần tạo ảnh này
         layoutType: "festive", // Tag mới
         layoutTag: "Festive & Joyful" // Tag mới
     },
@@ -37,25 +37,9 @@ const charactersData = [
         id: "special-week",
         name: "Special Week",
         series: "Uma Musume Pretty Derby",
-        thumbImage: "assets/images/characters/special-week-thumb.jpg",
+        thumbImage: "assets/images/special-week/special-week.jpg",
         layoutType: "energetic",
         layoutTag: "Energetic & Optimistic"
-    },
-    {
-        id: "anya",
-        name: "Anya Forger",
-        series: "Spy x Family",
-        thumbImage: "assets/images/characters/anya-thumb.jpg", // Bạn cần tạo ảnh này
-        layoutType: "playful", // Tag mới
-        layoutTag: "Playful & Mysterious" // Tag mới
-    },
-    {
-        id: "seiha",
-        name: "Seiha Shiunji",
-        series: "The Shiunji Family Children",
-        thumbImage: "assets/images/characters/seiha-thumb.jpg", // Bạn cần tạo ảnh này
-        layoutType: "pure", // Tag mới
-        layoutTag: "Pure & Heartwarming" // Tag mới
     },
     {
         id: "miku",
@@ -96,6 +80,23 @@ const charactersData = [
         thumbImage: "assets/images/characters/yotsuba-thumb.jpg",
         layoutType: "cute",
         layoutTag: "Energetic & Sporty"
+    },
+
+    {
+        id: "anya",
+        name: "Anya Forger",
+        series: "Spy x Family",
+        thumbImage: "assets/images/characters/anya.jpg",
+        layoutType: "cute",
+        layoutTag: "Telepath & Spy"
+    },
+    {
+        id: "seiha",
+        name: "Seiha Shiunji",
+        series: "Shiunji-ke no Kodomo-tachi",
+        thumbImage: "assets/images/characters/ShiunjiSeiha.jpg",
+        layoutType: "calm",
+        layoutTag: "Bookworm & Genius"
     }
 
 

@@ -1,0 +1,231 @@
+/* assets/css/seiha-style.css */
+
+/* --- FONTS & VARS --- */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+    --color-primary: #3498db;
+    /* Intelligent Blue */
+    --color-secondary: #ecf0f1;
+    /* Paper White */
+    --color-accent: #f1c40f;
+    /* Gold Leaf */
+    --color-text: #2c3e50;
+    /* Ink Blue */
+    --color-bg: #fdfbf7;
+    /* Old Paper */
+
+    --font-heading: 'Crimson Text', serif;
+    --font-body: 'Lato', sans-serif;
+
+    --shadow-book: 5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.8;
+    overflow-x: hidden;
+    /* Paper Texture effect */
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23dcd6cc' fill-opacity='0.1'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- HEADER --- */
+.book-header {
+    background: var(--color-bg);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-family: var(--font-body);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: #7f8c8d;
+}
+
+.nav-link:hover {
+    color: var(--color-text);
+    text-decoration: underline;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    padding: 5rem 0;
+    display: flex;
+    align-items: flex-start;
+    /* Align top for book layout */
+    gap: 4rem;
+}
+
+.hero-text-col {
+    flex: 1;
+    padding-top: 2rem;
+}
+
+.hero-subtitle {
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    line-height: 1.1;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+}
+
+.hero-divider {
+    width: 50px;
+    height: 3px;
+    background: var(--color-primary);
+    margin-bottom: 2rem;
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.hero-image-col {
+    flex: 1;
+    position: relative;
+}
+
+.polaroid-frame {
+    background: white;
+    padding: 15px 15px 50px 15px;
+    box-shadow: var(--shadow-book);
+    transform: rotate(3deg);
+    transition: transform 0.3s;
+}
+
+.polaroid-frame:hover {
+    transform: rotate(0);
+}
+
+.hero-img {
+    width: 100%;
+    filter: sepia(20%);
+    display: block;
+}
+
+/* --- BOOK LIST --- */
+.reading-section {
+    padding: 4rem 0;
+    background: white;
+    border-top: 1px solid #eee;
+}
+
+.section-head {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-text);
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.book-card {
+    background: var(--color-bg);
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03);
+    border: 1px solid #eee;
+    transition: transform 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-book);
+}
+
+.book-icon {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.book-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.book-desc {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* --- FOOTER --- */
+.book-footer {
+    text-align: center;
+    padding: 3rem 0;
+    color: #999;
+    font-size: 0.9rem;
+    border-top: 1px solid #eee;
+}

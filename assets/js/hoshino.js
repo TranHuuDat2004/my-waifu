@@ -4,22 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!galleryGrid) return;
 
     // --- CẤU HÌNH ẢNH CỦA HOSHINO ---
-    const hoshinoGalleryData = {
-        path: 'assets/images/hoshino/gallery/',
-        prefix: 'hoshino(',
-        suffix: ')',
-        ext: 'jpg',
-        count: 20, // Cập nhật tổng số ảnh của Hoshino
-        captions: [
-            "Uhe~ So sleepy...", "Time for a nap.", "Is it break time yet?",
-            "Fighting is a pain...", "Leave it to Oji-san.", "Protecting my friends.",
-            "Abydos is my home.", "Don't wake me up.", "Whale cushion is the best.",
-            "Feeling motivated... maybe later.", "...", "Let's finish this quickly.",
-            "Secretly a pro.", "Ready when needed.", "My shotgun speaks for me.",
-            "For Abydos!", "Just five more minutes...", "The Wolf God.",
-            "A peaceful day is the best.", "Don't mess with my students."
-        ]
-    };
+    // --- CẤU HÌNH ẢNH CỦA HOSHINO ---
+    const hoshinoImages = [
+        "hoshino.jpg",
+        "hoshino1.jpg",
+        "hoshino2.jpg",
+        "hoshino3.jpg"
+    ];
 
     // --- HÀM TỐI ƯU (Tải ảnh trước) ---
     function createImageItem(src, alt, caption) {
@@ -42,16 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
         preloader.src = src;
         return item;
     }
+    hoshinoImages.forEach((filename, index) => {
+        const imageUrl = `assets/images/hoshino/${filename}`;
+        const imageAlt = `Hoshino gallery image ${index + 1}`;
+        const imageCaption = hoshinoCaptions[index] || '';
 
-    // --- TẠO GALLERY TỰ ĐỘNG ---
-    for (let i = 1; i <= hoshinoGalleryData.count; i++) {
-        const imageUrl = `${hoshinoGalleryData.path}${hoshinoGalleryData.prefix}${i}${hoshinoGalleryData.suffix}.${hoshinoGalleryData.ext}`;
-        const imageAlt = `Hoshino gallery image ${i}`;
-        const imageCaption = hoshinoGalleryData.captions[i-1] || '';
+        // Use the same helper or inline the logic if simpler (helper is fine)
         const galleryItemElement = createImageItem(imageUrl, imageAlt, imageCaption);
         galleryGrid.appendChild(galleryItemElement);
-    }
-    
+    });
+
     // --- KÍCH HOẠT HIỆU ỨNG CUỘN ---
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

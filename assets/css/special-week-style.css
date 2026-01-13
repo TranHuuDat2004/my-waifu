@@ -1,0 +1,307 @@
+/* assets/css/special-week-style.css */
+
+/* --- FONTS & VARS --- */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap');
+
+:root {
+    --color-primary: #8e44ad;
+    /* Special Week Violet */
+    --color-secondary: #9b59b6;
+    --color-accent: #e91e63;
+    /* Pink for skills/energy */
+    --color-bg: #f8f9fa;
+    --color-text: #2c3e50;
+    --color-white: #ffffff;
+    --color-track: #27ae60;
+    /* Turf Green */
+
+    --font-heading: 'Exo 2', sans-serif;
+    --font-body: 'M PLUS Rounded 1c', sans-serif;
+
+    --shadow-speed: 4px 4px 0 rgba(142, 68, 173, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0),
+        linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- HEADER --- */
+.tracen-header {
+    background: var(--color-white);
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--color-primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand img {
+    height: 30px;
+    /* Placeholder for horseshoe icon if we had one */
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-item {
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    color: #7f8c8d;
+    transition: color 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.nav-item:hover {
+    color: var(--color-primary);
+}
+
+.nav-item.active {
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+}
+
+.back-link {
+    font-weight: 700;
+    color: #95a5a6;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 20px;
+    font-family: var(--font-heading);
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    padding: 3rem 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #2980b9 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 50% 50% / 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+.hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05);
+    z-index: 0;
+    white-space: nowrap;
+    font-family: var(--font-heading);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-img-container {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 5px solid white;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: white;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-name {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.hero-catchphrase {
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+/* --- STATS SECTION --- */
+.stats-section {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-speed);
+    border: 1px solid #eee;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+}
+
+.section-title::before {
+    content: '';
+    width: 5px;
+    height: 25px;
+    background: var(--color-accent);
+    display: inline-block;
+}
+
+.stat-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.stat-label {
+    width: 100px;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.stat-bar-container {
+    flex: 1;
+    height: 15px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 15px;
+}
+
+.stat-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+    width: 0%;
+    /* JS will animate this */
+    border-radius: 10px;
+    transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stat-rank {
+    width: 40px;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--color-primary);
+}
+
+/* --- SKILL SECTION --- */
+.skill-section {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.skill-card {
+    flex: 1;
+    background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 5px solid var(--color-accent);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.skill-name {
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-desc {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.skill-img-container {
+    flex: 0 0 200px;
+}
+
+.skill-img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- FOOTER --- */
+.tracen-footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: #aaa;
+    font-size: 0.8rem;
+    border-top: 1px solid #ddd;
+    margin-top: 2rem;
+    background: white;
+}
